@@ -1,0 +1,8 @@
+{
+  "name": "CivicHub Smart City Portal",
+  "description": "An enterprise-grade centralized digital platform for smart city management, featuring role-based access for citizens, department admins, and government officials.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ]
+}
