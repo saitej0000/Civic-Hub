@@ -33,8 +33,8 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
           <div className="inline-flex items-center justify-center p-3 bg-blue-600 rounded-2xl text-white mb-4 shadow-lg shadow-blue-200">
             <Building2 size={32} />
           </div>
-          <h1 className="text-3xl font-extrabold text-slate-900">CivicHub</h1>
-          <p className="text-slate-500 mt-2 font-medium">Smart City Information Portal</p>
+          <h1 className="text-3xl font-extrabold text-slate-900">Telangana One</h1>
+          <p className="text-slate-500 mt-2 font-medium">Smart City Portal</p>
         </div>
 
         {/* Login Form Card */}
@@ -42,20 +42,20 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
           <div className="mb-8">
             <label className="text-sm font-bold text-slate-700 block mb-4 uppercase tracking-wider">Select Access Role</label>
             <div className="grid grid-cols-3 gap-3">
-              <RoleButton 
-                active={selectedRole === UserRole.CITIZEN} 
+              <RoleButton
+                active={selectedRole === UserRole.CITIZEN}
                 onClick={() => setSelectedRole(UserRole.CITIZEN)}
                 icon={<UserIcon size={18} />}
                 label="Citizen"
               />
-              <RoleButton 
-                active={selectedRole === UserRole.DEPT_ADMIN} 
+              <RoleButton
+                active={selectedRole === UserRole.DEPT_ADMIN}
                 onClick={() => setSelectedRole(UserRole.DEPT_ADMIN)}
                 icon={<Briefcase size={18} />}
                 label="Dept"
               />
-              <RoleButton 
-                active={selectedRole === UserRole.SUPER_ADMIN} 
+              <RoleButton
+                active={selectedRole === UserRole.SUPER_ADMIN}
                 onClick={() => setSelectedRole(UserRole.SUPER_ADMIN)}
                 icon={<ShieldCheck size={18} />}
                 label="Gov"
@@ -68,8 +68,8 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
               <label className="text-sm font-semibold text-slate-700">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@city.gov"
@@ -86,8 +86,8 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
               </div>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                <input 
-                  type="password" 
+                <input
+                  type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
@@ -97,7 +97,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
               </div>
             </div>
 
-            <button 
+            <button
               type="submit"
               className="w-full py-4 bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 flex items-center justify-center gap-2 group"
             >

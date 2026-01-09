@@ -13,11 +13,11 @@ interface Message {
 const AIAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'bot', text: 'Hello! I am your CivicHub AI assistant. I can help you find locations using Google Maps. What are you looking for today?' }
+    { role: 'bot', text: 'Hello! I am your Telangana One AI assistant. I can help you find locations using Google Maps. What are you looking for today?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [userCoords, setUserCoords] = useState<{lat: number, lng: number} | null>(null);
+  const [userCoords, setUserCoords] = useState<{ lat: number, lng: number } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const AIAssistant: React.FC = () => {
     setIsLoading(true);
 
     const result = await geminiService.getSmartCityHelp(
-      userMsg, 
+      userMsg,
       { city: 'Hyderabad', activeAlerts: 2, services: 150 },
       userCoords || undefined
     );
@@ -77,21 +77,20 @@ const AIAssistant: React.FC = () => {
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] p-4 rounded-2xl text-sm shadow-sm ${
-                  m.role === 'user' 
-                    ? 'bg-blue-600 text-white rounded-tr-none' 
+                <div className={`max-w-[85%] p-4 rounded-2xl text-sm shadow-sm ${m.role === 'user'
+                    ? 'bg-blue-600 text-white rounded-tr-none'
                     : 'bg-white text-slate-800 border border-slate-100 rounded-tl-none'
-                }`}>
+                  }`}>
                   <p className="leading-relaxed whitespace-pre-wrap">{m.text}</p>
-                  
+
                   {m.links && m.links.length > 0 && (
                     <div className="mt-4 pt-3 border-t border-slate-100 space-y-2">
                       <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Location Results</p>
                       {m.links.map((link, idx) => (
-                        <a 
-                          key={idx} 
-                          href={link.uri} 
-                          target="_blank" 
+                        <a
+                          key={idx}
+                          href={link.uri}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 p-2 bg-slate-50 hover:bg-blue-50 rounded-xl text-blue-600 font-bold text-xs transition-colors border border-slate-200 hover:border-blue-200"
                         >
@@ -129,7 +128,7 @@ const AIAssistant: React.FC = () => {
                 placeholder="Find hospitals, EV stations, parks..."
                 className="flex-1 px-4 py-3 bg-slate-100 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 font-medium"
               />
-              <button 
+              <button
                 onClick={handleSend}
                 disabled={isLoading}
                 className="p-3 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 disabled:opacity-50 transition-colors shadow-lg shadow-blue-200"

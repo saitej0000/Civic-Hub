@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
-import { 
-  LayoutDashboard, 
-  AlertTriangle, 
-  Map as MapIcon, 
-  FileText, 
-  Settings, 
-  LogOut, 
-  Menu, 
+import {
+  LayoutDashboard,
+  AlertTriangle,
+  Map as MapIcon,
+  FileText,
+  Settings,
+  LogOut,
+  Menu,
   X,
   User as UserIcon,
   Briefcase,
@@ -49,8 +49,8 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, activeView, onViewChang
     <div className="flex h-screen bg-slate-50 overflow-hidden">
       {/* Sidebar Mobile Overlay */}
       {isSidebarOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden" 
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -66,7 +66,7 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, activeView, onViewChang
               <div className="bg-blue-600 p-2 rounded-xl text-white">
                 <Building2 size={24} />
               </div>
-              <h1 className="text-xl font-bold text-slate-900 tracking-tight">CivicHub</h1>
+              <h1 className="text-xl font-bold text-slate-900 tracking-tight">Telangana One</h1>
             </div>
           </div>
 
@@ -75,11 +75,10 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, activeView, onViewChang
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-medium text-sm ${
-                  activeView === item.id 
-                    ? 'bg-blue-50 text-blue-600 shadow-sm' 
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-medium text-sm ${activeView === item.id
+                    ? 'bg-blue-50 text-blue-600 shadow-sm'
                     : 'text-slate-600 hover:bg-slate-50 hover:text-blue-600'
-                }`}
+                  }`}
               >
                 {item.icon}
                 {item.name}
@@ -97,7 +96,7 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, activeView, onViewChang
                 <p className="text-xs text-slate-500 truncate capitalize">{user.role.toLowerCase().replace('_', ' ')}</p>
               </div>
             </div>
-            <button 
+            <button
               onClick={onLogout}
               className="w-full flex items-center gap-3 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors text-sm font-medium"
             >
@@ -113,7 +112,7 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, activeView, onViewChang
         {/* Navbar */}
         <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0">
           <div className="flex items-center gap-4">
-            <button 
+            <button
               className="lg:hidden p-2 hover:bg-slate-100 rounded-lg text-slate-600"
               onClick={() => setSidebarOpen(true)}
             >
@@ -149,7 +148,7 @@ const Layout: React.FC<LayoutProps> = ({ user, onLogout, activeView, onViewChang
 };
 
 const Building2 = ({ size }: { size: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /><path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" /></svg>
 );
 
 export default Layout;
